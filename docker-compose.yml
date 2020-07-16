@@ -17,3 +17,4 @@ services:
       - /app/node_modules
     #folder in your project which you would want to map
       - .:/app
+    stdin_open: true   
