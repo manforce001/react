@@ -1,4 +1,6 @@
 #Tell Travis that we need super user permissions
+install:
+    - travis_wait
 sudo: required
 services:
 #Tell Travis that we need docker
