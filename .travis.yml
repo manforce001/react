@@ -9,6 +9,7 @@ before_install:
   - docker build -t akhil/docker-react-aws -f Dockerfile.dev .
  
 script:
+
+  - docker run akhil/docker-react-aws npm run test -- --coverage
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - travis_wait 20 julia --project -e 'using Pkg; Pkg.build(); Pkg.test(; coverage=true)';
-  - docker run akhil/docker-react-aws npm run test -- --coverage
