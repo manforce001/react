@@ -10,9 +10,7 @@ services:
 before_install:
   - travis_wait 100 sh -c 'npm install --production'
   - docker build -t akhil/docker-react-aws -f Dockerfile.dev .
- 
-script:
-  - 
+
   
   
  
