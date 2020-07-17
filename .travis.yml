@@ -14,6 +14,6 @@ before_install:
   - docker build -t akhil/docker-react-aws -f Dockerfile.dev .
  
 script:
-  - travis_wait 100 sh -c 'npm install --production'
   - docker run akhil/docker-react-aws npm run test -- --coverage
+  - travis_wait 30 sudo ./build.sh -v
   
