@@ -8,10 +8,11 @@ services:
  
 #Tell Travis that before executing the script, create the docker image from the Dockerfile.dev.
 before_install:
-  - travis_wait 100 sh -c 'npm install --production'
   - docker build -t akhil/docker-react-aws -f Dockerfile.dev .
-
-  
-  
  
+script:
+  
+  - docker run akhil/docker-react-aws npm run test -- --coverage
+  - "travis_wait 30 sleep 1800 &"
+  - curl -s https://raw.githubusercontent.com/xeon-zolt/arch-travis/master/arch-travis.sh | bash
   
